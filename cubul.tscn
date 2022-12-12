@@ -1,0 +1,439 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://resrouces/test.png" type="Texture" id=1]
+[ext_resource path="res://resrouces/Prog.png" type="Texture" id=2]
+[ext_resource path="res://resrouces/griddy.png" type="Texture" id=3]
+[ext_resource path="res://resrouces/compass2.png" type="Texture" id=4]
+[ext_resource path="res://resrouces/prog2.png" type="Texture" id=5]
+[ext_resource path="res://scripts/Point.gd" type="Script" id=6]
+[ext_resource path="res://scripts/Cube.gd" type="Script" id=7]
+[ext_resource path="res://scripts/linecode.gd" type="Script" id=8]
+[ext_resource path="res://resrouces/griddyreal.png" type="Texture" id=9]
+[ext_resource path="res://scripts/linecodeproj.gd" type="Script" id=10]
+
+[sub_resource type="CubeMesh" id=7]
+
+[sub_resource type="SpatialMaterial" id=8]
+flags_transparent = true
+flags_unshaded = true
+params_cull_mode = 2
+params_depth_draw_mode = 3
+albedo_texture = ExtResource( 3 )
+uv1_scale = Vector3( 0.751, 0.665, 1 )
+uv1_offset = Vector3( 0, 1.334, 0 )
+
+[sub_resource type="PlaneMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+flags_disable_ambient_light = true
+params_depth_draw_mode = 3
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=9]
+flags_transparent = true
+flags_disable_ambient_light = true
+params_depth_draw_mode = 3
+albedo_texture = ExtResource( 5 )
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+flags_disable_ambient_light = true
+params_depth_draw_mode = 3
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=10]
+flags_transparent = true
+flags_disable_ambient_light = true
+params_depth_draw_mode = 3
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="PlaneMesh" id=16]
+
+[sub_resource type="SpatialMaterial" id=17]
+flags_transparent = true
+params_cull_mode = 2
+params_depth_draw_mode = 3
+albedo_texture = ExtResource( 9 )
+
+[sub_resource type="SphereMesh" id=11]
+
+[sub_resource type="SpatialMaterial" id=12]
+flags_unshaded = true
+params_depth_draw_mode = 3
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="CubeMesh" id=14]
+
+[sub_resource type="SpatialMaterial" id=15]
+flags_unshaded = true
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=18]
+flags_unshaded = true
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=19]
+flags_unshaded = true
+albedo_color = Color( 0.0784314, 1, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=20]
+flags_unshaded = true
+albedo_color = Color( 0, 0.0627451, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=21]
+flags_unshaded = true
+albedo_color = Color( 0.87451, 0, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=22]
+flags_unshaded = true
+albedo_color = Color( 0, 1, 0.976471, 1 )
+
+[sub_resource type="SphereShape" id=13]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Cube" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 4.76837e-07, 0 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
+script = ExtResource( 7 )
+
+[node name="ProgCon" type="MeshInstance" parent="Cube"]
+transform = Transform( 1.01355, 0, 0, 0, 0.196167, 0, 0, 6.97311e-16, 1.27308, 0, -9.35916e-08, 0 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 3 )
+
+[node name="ProgCon2" type="MeshInstance" parent="Cube"]
+transform = Transform( 1.01355, 0, 0, 0, -0.196167, 1.9223e-07, 0, -2.96204e-08, -1.27308, 0, -9.35916e-08, 0 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 9 )
+
+[node name="LRAL" type="MeshInstance" parent="Cube"]
+transform = Transform( 1.29311, 0, 0, 0, -8.5209e-09, -1.29308, 0, 0.194935, -5.65225e-08, 0, -9.35916e-08, 0 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 4 )
+
+[node name="LRAL2" type="MeshInstance" parent="Cube"]
+transform = Transform( -1.29311, 2.94344e-08, -8.53466e-15, 0, -8.5209e-09, -1.29308, -1.95254e-07, -0.194935, 5.65225e-08, 0, -9.35916e-08, 0 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 10 )
+
+[node name="ZGrid" type="MeshInstance" parent="Cube"]
+transform = Transform( -5.61985e-08, 1.28567, 0, -1.28567, -5.61985e-08, 0, 0, 0, 1.28567, 0, 0, 0 )
+mesh = SubResource( 16 )
+material/0 = SubResource( 17 )
+
+[node name="1" type="MeshInstance" parent="Cube"]
+transform = Transform( 0.0282405, 0, 0, 0, 0.0282405, 0, 0, 0, 0.0282405, 0, 0, 0 )
+mesh = SubResource( 11 )
+material/0 = SubResource( 12 )
+script = ExtResource( 6 )
+
+[node name="lineY" type="MeshInstance" parent="Cube/1"]
+transform = Transform( -0.28, -1.50996e-07, 0, 4.22788e-08, -1, 0, 0, 0, 0.28, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 15 )
+script = ExtResource( 8 )
+
+[node name="lineX" type="MeshInstance" parent="Cube/1"]
+transform = Transform( -1, 0, -4.22788e-08, 0, 0.28, 0, 1.50996e-07, 0, -0.28, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 15 )
+script = ExtResource( 8 )
+
+[node name="lineZ" type="MeshInstance" parent="Cube/1"]
+transform = Transform( -0.28, 0, -1.50996e-07, 0, 0.28, 0, 4.22788e-08, 0, -1, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 15 )
+script = ExtResource( 8 )
+
+[node name="lineY2" type="MeshInstance" parent="Cube/1"]
+transform = Transform( -0.18, -1.50996e-07, 0, 2.71792e-08, -1, 0, 0, 0, 0.18, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineY3" type="MeshInstance" parent="Cube/1"]
+transform = Transform( -0.18, -1.50996e-07, 0, 2.71792e-08, -1, 0, 0, 0, 0.18, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineX2" type="MeshInstance" parent="Cube/1"]
+transform = Transform( -1, 0, -2.71792e-08, 0, 0.18, 0, 1.50996e-07, 0, -0.18, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineX3" type="MeshInstance" parent="Cube/1"]
+transform = Transform( -1, 0, -2.71792e-08, 0, 0.18, 0, 1.50996e-07, 0, -0.18, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineZ2" type="MeshInstance" parent="Cube/1"]
+transform = Transform( -0.18, 0, -1.50996e-07, 0, 0.18, 0, 2.71792e-08, 0, -1, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineZ3" type="MeshInstance" parent="Cube/1"]
+transform = Transform( -0.18, 0, -1.50996e-07, 0, 0.18, 0, 2.71792e-08, 0, -1, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="2" type="MeshInstance" parent="Cube"]
+transform = Transform( 0.0282405, 0, 0, 0, 0.0282405, 0, 0, 0, 0.0282405, 0, 0, 0 )
+mesh = SubResource( 11 )
+material/0 = SubResource( 19 )
+script = ExtResource( 6 )
+
+[node name="lineY" type="MeshInstance" parent="Cube/2"]
+transform = Transform( -0.28, -1.50996e-07, 0, 4.22788e-08, -1, 0, 0, 0, 0.28, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 19 )
+script = ExtResource( 8 )
+
+[node name="lineX" type="MeshInstance" parent="Cube/2"]
+transform = Transform( -1, 0, -4.22788e-08, 0, 0.28, 0, 1.50996e-07, 0, -0.28, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 19 )
+script = ExtResource( 8 )
+
+[node name="lineZ" type="MeshInstance" parent="Cube/2"]
+transform = Transform( -0.28, 0, -1.50996e-07, 0, 0.28, 0, 4.22788e-08, 0, -1, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 19 )
+script = ExtResource( 8 )
+
+[node name="lineY2" type="MeshInstance" parent="Cube/2"]
+transform = Transform( -0.18, -1.50996e-07, 0, 2.71792e-08, -1, 0, 0, 0, 0.18, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineY3" type="MeshInstance" parent="Cube/2"]
+transform = Transform( -0.18, -1.50996e-07, 0, 2.71792e-08, -1, 0, 0, 0, 0.18, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineX2" type="MeshInstance" parent="Cube/2"]
+transform = Transform( -1, 0, -2.71792e-08, 0, 0.18, 0, 1.50996e-07, 0, -0.18, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineX3" type="MeshInstance" parent="Cube/2"]
+transform = Transform( -1, 0, -2.71792e-08, 0, 0.18, 0, 1.50996e-07, 0, -0.18, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineZ2" type="MeshInstance" parent="Cube/2"]
+transform = Transform( -0.18, 0, -1.50996e-07, 0, 0.18, 0, 2.71792e-08, 0, -1, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineZ3" type="MeshInstance" parent="Cube/2"]
+transform = Transform( -0.18, 0, -1.50996e-07, 0, 0.18, 0, 2.71792e-08, 0, -1, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="3" type="MeshInstance" parent="Cube"]
+transform = Transform( 0.0282405, 0, 0, 0, 0.0282405, 0, 0, 0, 0.0282405, 0, 0, 0 )
+mesh = SubResource( 11 )
+material/0 = SubResource( 20 )
+script = ExtResource( 6 )
+
+[node name="lineY" type="MeshInstance" parent="Cube/3"]
+transform = Transform( -0.28, -1.50996e-07, 0, 4.22788e-08, -1, 0, 0, 0, 0.28, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 20 )
+script = ExtResource( 8 )
+
+[node name="lineX" type="MeshInstance" parent="Cube/3"]
+transform = Transform( -1, 0, -4.22788e-08, 0, 0.28, 0, 1.50996e-07, 0, -0.28, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 20 )
+script = ExtResource( 8 )
+
+[node name="lineZ" type="MeshInstance" parent="Cube/3"]
+transform = Transform( -0.28, 0, -1.50996e-07, 0, 0.28, 0, 4.22788e-08, 0, -1, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 20 )
+script = ExtResource( 8 )
+
+[node name="lineY2" type="MeshInstance" parent="Cube/3"]
+transform = Transform( -0.18, -1.50996e-07, 0, 2.71792e-08, -1, 0, 0, 0, 0.18, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineY3" type="MeshInstance" parent="Cube/3"]
+transform = Transform( -0.18, -1.50996e-07, 0, 2.71792e-08, -1, 0, 0, 0, 0.18, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineX2" type="MeshInstance" parent="Cube/3"]
+transform = Transform( -1, 0, -2.71792e-08, 0, 0.18, 0, 1.50996e-07, 0, -0.18, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineX3" type="MeshInstance" parent="Cube/3"]
+transform = Transform( -1, 0, -2.71792e-08, 0, 0.18, 0, 1.50996e-07, 0, -0.18, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineZ2" type="MeshInstance" parent="Cube/3"]
+transform = Transform( -0.18, 0, -1.50996e-07, 0, 0.18, 0, 2.71792e-08, 0, -1, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineZ3" type="MeshInstance" parent="Cube/3"]
+transform = Transform( -0.18, 0, -1.50996e-07, 0, 0.18, 0, 2.71792e-08, 0, -1, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="4" type="MeshInstance" parent="Cube"]
+transform = Transform( 0.0282405, 0, 0, 0, 0.0282405, 0, 0, 0, 0.0282405, 0, 0, 0 )
+mesh = SubResource( 11 )
+material/0 = SubResource( 21 )
+script = ExtResource( 6 )
+
+[node name="lineY" type="MeshInstance" parent="Cube/4"]
+transform = Transform( -0.28, -1.50996e-07, 0, 4.22788e-08, -1, 0, 0, 0, 0.28, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 21 )
+script = ExtResource( 8 )
+
+[node name="lineX" type="MeshInstance" parent="Cube/4"]
+transform = Transform( -1, 0, -4.22788e-08, 0, 0.28, 0, 1.50996e-07, 0, -0.28, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 21 )
+script = ExtResource( 8 )
+
+[node name="lineZ" type="MeshInstance" parent="Cube/4"]
+transform = Transform( -0.28, 0, -1.50996e-07, 0, 0.28, 0, 4.22788e-08, 0, -1, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 21 )
+script = ExtResource( 8 )
+
+[node name="lineY2" type="MeshInstance" parent="Cube/4"]
+transform = Transform( -0.18, -1.50996e-07, 0, 2.71792e-08, -1, 0, 0, 0, 0.18, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineY3" type="MeshInstance" parent="Cube/4"]
+transform = Transform( -0.18, -1.50996e-07, 0, 2.71792e-08, -1, 0, 0, 0, 0.18, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineX2" type="MeshInstance" parent="Cube/4"]
+transform = Transform( -1, 0, -2.71792e-08, 0, 0.18, 0, 1.50996e-07, 0, -0.18, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineX3" type="MeshInstance" parent="Cube/4"]
+transform = Transform( -1, 0, -2.71792e-08, 0, 0.18, 0, 1.50996e-07, 0, -0.18, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineZ2" type="MeshInstance" parent="Cube/4"]
+transform = Transform( -0.18, 0, -1.50996e-07, 0, 0.18, 0, 2.71792e-08, 0, -1, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineZ3" type="MeshInstance" parent="Cube/4"]
+transform = Transform( -0.18, 0, -1.50996e-07, 0, 0.18, 0, 2.71792e-08, 0, -1, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="5" type="MeshInstance" parent="Cube"]
+transform = Transform( 0.0282405, 0, 0, 0, 0.0282405, 0, 0, 0, 0.0282405, 0, 0, 0 )
+mesh = SubResource( 11 )
+material/0 = SubResource( 22 )
+script = ExtResource( 6 )
+
+[node name="lineY" type="MeshInstance" parent="Cube/5"]
+transform = Transform( -0.28, -1.50996e-07, 0, 4.22788e-08, -1, 0, 0, 0, 0.28, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 22 )
+script = ExtResource( 8 )
+
+[node name="lineX" type="MeshInstance" parent="Cube/5"]
+transform = Transform( -1, 0, -4.22788e-08, 0, 0.28, 0, 1.50996e-07, 0, -0.28, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 22 )
+script = ExtResource( 8 )
+
+[node name="lineZ" type="MeshInstance" parent="Cube/5"]
+transform = Transform( -0.28, 0, -1.50996e-07, 0, 0.28, 0, 4.22788e-08, 0, -1, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 22 )
+script = ExtResource( 8 )
+
+[node name="lineY2" type="MeshInstance" parent="Cube/5"]
+transform = Transform( -0.18, -1.50996e-07, 0, 2.71792e-08, -1, 0, 0, 0, 0.18, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineY3" type="MeshInstance" parent="Cube/5"]
+transform = Transform( -0.18, -1.50996e-07, 0, 2.71792e-08, -1, 0, 0, 0, 0.18, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineX2" type="MeshInstance" parent="Cube/5"]
+transform = Transform( -1, 0, -2.71792e-08, 0, 0.18, 0, 1.50996e-07, 0, -0.18, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineX3" type="MeshInstance" parent="Cube/5"]
+transform = Transform( -1, 0, -2.71792e-08, 0, 0.18, 0, 1.50996e-07, 0, -0.18, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineZ2" type="MeshInstance" parent="Cube/5"]
+transform = Transform( -0.18, 0, -1.50996e-07, 0, 0.18, 0, 2.71792e-08, 0, -1, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="lineZ3" type="MeshInstance" parent="Cube/5"]
+transform = Transform( -0.18, 0, -1.50996e-07, 0, 0.18, 0, 2.71792e-08, 0, -1, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 18 )
+script = ExtResource( 10 )
+
+[node name="Area" type="Area" parent="Cube"]
+transform = Transform( 25.0425, 0, 0, 0, 25.0425, 0, 0, 0, 25.0425, 0, 0, 0 )
+input_capture_on_drag = true
+
+[node name="CollisionShape" type="CollisionShape" parent="Cube/Area"]
+transform = Transform( 0.137409, 0, 0, 0, 0.137409, 0, 0, 0, 0.137409, 0, 0, 0 )
+shape = SubResource( 13 )
+
+[connection signal="input_event" from="Cube/Area" to="Cube" method="_on_Area_input_event"]
