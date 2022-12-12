@@ -1,4 +1,4 @@
-# Political
+# Cubul Politic / Political Cube
 [RO]
 Compas tridimensional pentru vizualizarea ideologiilor politice. Folositor pentru dezbateri politice sau pentru scopuri eudcationale. Acest program a fost făcut pentru un proiect școlar.
 
